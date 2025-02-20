@@ -7,7 +7,7 @@ class CategoryControllers{
     }
     public function addCategory(){
     $categorys=$this->models->getAll();
-        require_once __DIR__."/../views/addArticles.php";
+        require_once __DIR__."/../views/addArticls.php";
     }
 
 }

@@ -6,7 +6,7 @@ class Routes{
         $this->routes['GET'][$path] = $action;
     }
     public function post($path,$action){
-        $this->routes["POST"][$path]=[$action];
+        $this->routes['POST'][$path]=$action;
 
     }
     public function dispatche($uri,$methode){
@@ -22,11 +22,15 @@ class Routes{
         
       ($request=array_merge($bodyParam,$querryParam));
         
+
         if(isset($this->routes[$methode][$path])){
-            echo "yes";
+     
+
              [$class,$method]=$this->routes[$methode][$path];
              $controller=new $class();
               $controller->$method($request);
+
+
         }
        
 

@@ -88,7 +88,8 @@ echo "
           <div class='card-body'>
             <h5 class='card-title'>".$article['title']."</h5>
             <p class='card-text'>".$article['content']."</p>
-            <a href='#' class='btn btn-primary'>Lire plus</a>
+            <a href='/updateArticle?id=".$article['id']."' class='btn btn-primary'>update</a>
+            <a href='#' class='btn btn-primary'>delete</a>
           </div>
         </div>
       </div>

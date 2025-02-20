@@ -11,10 +11,23 @@ public function __construct(){
 public function getAll(){
     $stmt=$this->pdo->prepare("SELECT * FROM $this->model");
     $stmt->execute();
-   return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-  
+   return $stmt->fetchAll(PDO::FETCH_ASSOC); 
 }
+public function addArticls($request){
+    $stmt=$this->pdo->prepare("INSERT INTO $this->model(title,content,category_id) VALUES(?,?,?) ");
+    $stmt->execute([$request["name"],$request["content"],$request["category_id"]]);
+   return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+public function formulaireArticle($request){
+    $stmt=$this->pdo->prepare("SELECT * FROM $this->model WHERE id=?");
+    $stmt->execute([$request['id']]);
+   return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+}
+public function updateArticle($request){
+    $stmt=$this->pdo->prepare("UPDATE  $this->model set (title=?,content=?,category_id=?) WHERE id=?");
+    $stmt->execute([$request['name'],$request['content'],$request['category_id'],$request['id']]);
+   return $stmt->fetchAll(PDO::FETCH_ASSOC); 
+}
+
 }
 ?>

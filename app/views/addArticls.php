@@ -12,31 +12,36 @@
     <div class="card shadow-lg p-4">
         <h2 class="text-center mb-4">Ajouter un Article</h2>
         
-        <form action="/articles/store" method="POST">
+        <form action="/addArticls" method="POST">
             <!-- Token CSRF (sécurité Laravel) -->
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <!-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> -->
 
             <!-- Titre de l'article -->
             <div class="mb-3">
                 <label for="title" class="form-label">Titre de l'article</label>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Entrez le titre" required>
+                <input type="text" class="form-control" value="<?php $articls['title'] ?>" id="title" name="name" placeholder="Entrez le titre" required>
             </div>
 
             <!-- Contenu de l'article -->
             <div class="mb-3">
                 <label for="content" class="form-label">Contenu</label>
-                <textarea class="form-control" id="content" name="content" rows="5" placeholder="Rédigez votre article..." required></textarea>
+                <textarea class="form-control" id="content" value="<?php $articls['content'] ?>" name="content" rows="5" placeholder="Rédigez votre article..." required></textarea>
             </div>
 
             <!-- Sélection de la catégorie -->
             <div class="mb-3">
                 <label for="category" class="form-label">Catégorie</label>
-                <select class="form-select" id="category" name="category_id" required>
+                <select class="form-select" id="category_id" name="category_id" required>
                     <option value="" selected disabled>Choisir une catégorie</option>
-                    <!-- Boucle Laravel pour afficher les catégories -->
-                    @foreach($categorys as $category)
-                        <option value="<?php $category['id']  ?>"><?php $category['name']  ?></option>
-                    @endforeach
+                    <?php 
+                    foreach($categorys as $category){
+
+                    
+                    echo "
+                        <option value=' ".$category['id']."  '> ".$category['name'] ." </option>
+                        ";}
+                        ?>
+                
                 </select>
             </div>
 

@@ -13,6 +13,24 @@ class ArticlsControllers{
         require __DIR__ . "/../../app/views/articls.php";
 
     }
+    public function addArticls($request){
+        $articls= $this->model->addArticls($request);
+        $articls= $this->model->getAll();
+        require __DIR__ . "/../views/articls.php";
+
+    }
+    public function formulaireArticle($request){
+      
+        $articls= $this->model->formulaireArticle($request);
+        require __DIR__ . "/../../app/views/articls.php";
+
+    }
+    public function updateArticle($request){
+      
+        $articls= $this->model->updateArticle($request);
+        require __DIR__ . "/../../app/views/articls.php";
+
+    }
 
     
 }
