@@ -14,5 +14,6 @@ $routes->post('/updateArticls', [ArticlsControllers::class, 'updateArticle']);
 $routes->get('/updateFormulaire', [ArticlsControllers::class, 'formulaireArticle']);
 // $routes->get('/formulaireArticle', [ArticlsControllers::class, 'formulaireArticle']);
 $routes->get('/deleteArticle', [ArticlsControllers::class, 'deleteArticls']);
+$routes->post('/addUsers', [userControllers::class, 'add']);
 // $routes->post('/articls', [ArticlsControllers::class, 'getAll']);
 return $routes;

@@ -26,8 +26,14 @@
 </head>
 <body>
     <div class="form-container">
-        <h3 class="text-center" id="formTitle">Connexion</h3>
+        <h3 class="text-center" id="formTitle" >Connexion</h3>
         <form method="post"  id="authForm">
+        <div id="extraFields" class="d-none">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nom d'utilisateur</label>
+                    <input name="name" type="text" class="form-control" id="username">
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input  name="email" type="email" class="form-control" id="email" required>
@@ -36,12 +42,7 @@
                 <label for="password" class="form-label">Mot de passe</label>
                 <input  name="password" type="password" class="form-control" id="password" required>
             </div>
-            <div id="extraFields" class="d-none">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Nom d'utilisateur</label>
-                    <input name="username" type="text" class="form-control" id="username">
-                </div>
-            </div>
+         
             <button  name="submit" type="submit" class="btn btn-primary w-100">Se connecter</button>
         </form>
         <p class="text-center mt-3">
@@ -65,12 +66,16 @@
                 submitButton.textContent = "S'inscrire";
                 toggleText.textContent = "Déjà un compte ?";
                 toggleLink.textContent = "Se connecter";
+                authForm.setAttribute("action","/addUsers")
+
             } else {
                 formTitle.textContent = 'Connexion';
                 extraFields.classList.add('d-none');
                 submitButton.textContent = "Se connecter";
                 toggleText.textContent = "Pas encore de compte ?";
                 toggleLink.textContent = "S'inscrire";
+                authForm.setAttribute("action","/")
+
             }
         }
     </script>
