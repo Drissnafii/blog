@@ -5,10 +5,11 @@ class CategoryControllers{
     public function __construct(){
         $this->models=new CategoryModels();
     }
-    public function addCategory(){
+    public function getCategory(){
     $categorys=$this->models->getAll();
-        require_once __DIR__."/../views/addArticls.php";
+        require_once __DIR__."/../views/formulaire.php";
     }
+    
 
 }
 ?>

@@ -1,6 +1,7 @@
 <?php 
 include __DIR__."/controllers.php";
 include __DIR__."/../models/ArticleModels.php";
+include __DIR__."/../models/categoryModels.php";
 // include __DIR__."/../core/database.php";
 class ArticlsControllers{
     private $model;
@@ -13,6 +14,7 @@ class ArticlsControllers{
         require __DIR__ . "/../../app/views/articls.php";
 
     }
+    
     public function addArticls($request){
         $articls= $this->model->addArticls($request);
         $articls= $this->model->getAll();
@@ -20,14 +22,23 @@ class ArticlsControllers{
 
     }
     public function formulaireArticle($request){
-      
+        $categorie=new categoryModels();
+        $categories=$categorie->getSpecificCategory($request);
+        $categorys=$categorie->getAll();
         $articls= $this->model->formulaireArticle($request);
-        require __DIR__ . "/../../app/views/articls.php";
+        require __DIR__ . "/../../app/views/updateFormulaire.php";
 
     }
     public function updateArticle($request){
-      
-        $articls= $this->model->updateArticle($request);
+        $this->model->updateArticle($request);
+        $articls= $this->model->getAll();
+        require __DIR__ . "/../../app/views/articls.php";
+
+    }
+    public function deleteArticls($request){
+    //   print_r($request);
+        $this->model->deleteArticls($request);
+        $articls= $this->model->getAll();
         require __DIR__ . "/../../app/views/articls.php";
 
     }

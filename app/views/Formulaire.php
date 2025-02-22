@@ -19,13 +19,13 @@
             <!-- Titre de l'article -->
             <div class="mb-3">
                 <label for="title" class="form-label">Titre de l'article</label>
-                <input type="text" class="form-control" value="<?php $articls['title'] ?>" id="title" name="name" placeholder="Entrez le titre" required>
+                <input type="text" class="form-control"  id="title" name="name" placeholder="Entrez le titre" required>
             </div>
 
             <!-- Contenu de l'article -->
             <div class="mb-3">
                 <label for="content" class="form-label">Contenu</label>
-                <textarea class="form-control" id="content" value="<?php $articls['content'] ?>" name="content" rows="5" placeholder="Rédigez votre article..." required></textarea>
+                <textarea class="form-control" id="content"  name="content" rows="5" placeholder="Rédigez votre article..." required></textarea>
             </div>
 
             <!-- Sélection de la catégorie -->

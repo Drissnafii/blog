@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
       margin: 0;
       font-family: Arial, sans-serif;
     }
+
     .sidebar {
       height: 100vh;
       width: 250px;
@@ -20,6 +22,7 @@
       background-color: #343a40;
       padding-top: 20px;
     }
+
     .sidebar a {
       padding: 10px 15px;
       text-decoration: none;
@@ -27,21 +30,26 @@
       color: #fff;
       display: block;
     }
+
     .sidebar a:hover {
       background-color: #575d63;
     }
+
     .main-content {
       margin-left: 250px;
       padding: 20px;
     }
+
     .navbar {
       margin-left: 250px;
     }
+
     .card {
       margin-bottom: 20px;
     }
   </style>
 </head>
+
 <body>
 
   <!-- Sidebar -->
@@ -75,29 +83,30 @@
   <!-- Main Content -->
   <div class="main-content">
     <h1>Articles Récents</h1>
-    <div class="row">
-      <?php 
-  
-      foreach($articls as $article)
-      {
-echo "
     
-      <div class='col-md-4'>
-        <div class='card'>
-          <img src='https://via.placeholder.com/300' class='card-img-top' alt='...'>
-          <div class='card-body'>
-            <h5 class='card-title'>".$article['title']."</h5>
-            <p class='card-text'>".$article['content']."</p>
-            <a href='/updateArticle?id=".$article['id']."' class='btn btn-primary'>update</a>
-            <a href='#' class='btn btn-primary'>delete</a>
+    <!-- Bouton Ajouter un article -->
+    <a href="/getCategory" class="btn btn-success mb-3">Ajouter un article</a>
+
+    <div class="row">
+      <?php
+     
+
+      foreach ($articls as $article) {
+        echo "
+        <div class='col-md-4'>
+          <div class='card'>
+            <img src='https://via.placeholder.com/300' class='card-img-top' alt=''>
+            <div class='card-body'>
+              <h5 class='card-title'>" . htmlspecialchars($article['title']) . "</h5>
+              <p class='card-text'>" . htmlspecialchars($article['content']) . "</p>
+              <a href='/updateFormulaire?id=" . htmlspecialchars($article['id']) . "' class='btn btn-primary'>Modifier</a>
+              <a href='/deleteArticle?id=" . htmlspecialchars($article['id']) . "' class='btn btn-danger'>Supprimer</a>
+            </div>
           </div>
         </div>
-      </div>
-      ";
-        }
+        ";
+      }
       ?>
-      
-      
     </div>
   </div>
 
@@ -105,4 +114,5 @@ echo "
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

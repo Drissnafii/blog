@@ -14,5 +14,14 @@ public function getAll(){
  return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 }
+public function getSpecificCategory($request){
+    $stmt=$this->pdo->prepare("SELECT * FROM $this->model 
+    INNER JOIN articles on categories.id=articles.category_id where articles.id =?
+    ");
+    $stmt->execute([$request['id']]);
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+   
+   }
+
 }
 ?>
