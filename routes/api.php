@@ -4,8 +4,11 @@
 include __DIR__ . '/../app/core/routes.php';
 
 $routes = new Routes();
-$routes->get('/login', [userControllers::class, 'login']);
+$routes->get('/loginForm', [userControllers::class, 'loginForm']);
 $routes->get('/', [ArticlsControllers::class, 'index']);
+
+$routes->post('/donnes', [userControllers::class, 'login']);
+
 $routes->post('/register', [userControllers::class, 'register']);
 $routes->get('/addCategory', [categoryControllers::class, 'addCategory']);
 $routes->post('/addArticls', [ArticlsControllers::class, 'addArticls']);

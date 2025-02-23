@@ -27,7 +27,7 @@
 <body>
     <div class="form-container">
         <h3 class="text-center" id="formTitle" >Connexion</h3>
-        <form method="post"  id="authForm">
+        <form method="post" action="/donnes"  id="authForm">
         <div id="extraFields" class="d-none">
                 <div class="mb-3">
                     <label for="username" class="form-label">Nom d'utilisateur</label>
@@ -51,34 +51,8 @@
         </p>
     </div>
 
-    <script>
-        function toggleForm() {
-            const formTitle = document.getElementById('formTitle');
-            const extraFields = document.getElementById('extraFields');
-            const authForm = document.getElementById('authForm');
-            const submitButton = authForm.querySelector('button');
-            const toggleText = document.getElementById('toggleText');
-            const toggleLink = document.querySelector('.form-toggle');
-
-            if (formTitle.textContent === 'Connexion') {
-                formTitle.textContent = 'Inscription';
-                extraFields.classList.remove('d-none');
-                submitButton.textContent = "S'inscrire";
-                toggleText.textContent = "Déjà un compte ?";
-                toggleLink.textContent = "Se connecter";
-                authForm.setAttribute("action","/addUsers")
-
-            } else {
-                formTitle.textContent = 'Connexion';
-                extraFields.classList.add('d-none');
-                submitButton.textContent = "Se connecter";
-                toggleText.textContent = "Pas encore de compte ?";
-                toggleLink.textContent = "S'inscrire";
-                authForm.setAttribute("action","/")
-
-            }
-        }
-    </script>
+<script src="/assests/js/script.js"></script> <!-- ask azize sur les paths -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -70,7 +70,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/login">Connexion</a>
+            <a class="nav-link" href="/loginForm">Connexion</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Inscription</a>
