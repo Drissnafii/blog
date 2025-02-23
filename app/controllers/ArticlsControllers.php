@@ -22,7 +22,8 @@ class ArticlsControllers{
     
     public function addArticls($request){
         $articls= $this->model->addArticls($request);
-        $articls= $this->model->getAll($request['page']);
+        
+        $this->index(0);
         require __DIR__ . "/../views/articls.php";
 
     }
@@ -36,14 +37,20 @@ class ArticlsControllers{
     }
     public function updateArticle($request){
         $this->model->updateArticle($request);
-        $articls= $this->model->getAll();
+        // $articls= $this->model->getAll();
+        $page=1;
+        $articls= $this->model->getAll($page);
         require __DIR__ . "/../../app/views/articls.php";
 
     }
     public function deleteArticls($request){
     //   print_r($request);
         $this->model->deleteArticls($request);
-        $articls= $this->model->getAll();
+        // $articls= $this->model->getAll();
+       
+        $page=1;
+        $articls= $this->model->getAll($page);
+    
         require __DIR__ . "/../../app/views/articls.php";
 
     }

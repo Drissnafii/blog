@@ -119,7 +119,7 @@
         for ($i = 1; $i <= $articls[1]; $i++) {
           
             echo "
-        <li class='page-item'><a class='page-link' href='?page=$i'>$i</a>&nbsp</li>
+        <li class='page-item'><a class='page-link' href='/?page=$i'>$i</a>&nbsp</li>
 ";
         }
         ?>
