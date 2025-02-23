@@ -91,7 +91,7 @@
       <?php
      
 
-      foreach ($articls as $article) {
+      foreach ($articls[0] as $article) {
         echo "
         <div class='col-md-4'>
           <div class='card'>
@@ -109,6 +109,28 @@
       ?>
     </div>
   </div>
+  <div style="display: flex;justify-content: center" class="pagination">
+
+<nav aria-label='Page navigation example'>
+    <ul class='pagination'>
+
+        <?php
+
+        for ($i = 1; $i <= $articls[1]; $i++) {
+          
+            echo "
+        <li class='page-item'><a class='page-link' href='?page=$i'>$i</a>&nbsp</li>
+";
+        }
+        ?>
+
+    </ul>
+</nav>
+
+
+
+
+</div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

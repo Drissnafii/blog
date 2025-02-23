@@ -8,16 +8,21 @@ class ArticlsControllers{
     public function __construct(){
         $this->model=new ArticleModels();
     }
-    public function index(){
-      
-        $articls= $this->model->getAll();
+    public function index($page){
+      if(($page!=null))
+        $articls= $this->model->getAll($page['page']);
+    else {
+        $page=1;
+        $articls= $this->model->getAll($page);
+    }
+       
         require __DIR__ . "/../../app/views/articls.php";
 
     }
     
     public function addArticls($request){
         $articls= $this->model->addArticls($request);
-        $articls= $this->model->getAll();
+        $articls= $this->model->getAll($request['page']);
         require __DIR__ . "/../views/articls.php";
 
     }
