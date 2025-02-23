@@ -33,7 +33,7 @@
                 <label for="category" class="form-label">Catégorie</label>
                 <select class="form-select" id="category_id" name="category_id" required>
                     
-                    <option value='' selected disabled><?php echo $categories['name']?> </option>
+                    <option value='<?php echo $categories['category_id']?>' selected disabled><?php echo $categories['name']?> </option>
                     <?php 
                     foreach($categorys as $category){
 

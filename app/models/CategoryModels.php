@@ -15,7 +15,7 @@ public function getAll(){
 
 }
 public function getSpecificCategory($request){
-    $stmt=$this->pdo->prepare("SELECT * FROM $this->model 
+    $stmt=$this->pdo->prepare("SELECT categories.id as category_id,categories.name FROM $this->model 
     INNER JOIN articles on categories.id=articles.category_id where articles.id =?
     ");
     $stmt->execute([$request['id']]);
