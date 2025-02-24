@@ -1,12 +1,12 @@
 <?php 
 class   Session{
     private $user=[];
-    public function donnes($request){
-        $_SESSION['name']=$request['name'];
+    public function donnes($request,$user){
+        
+        $_SESSION['name']=$user['name'];
         $_SESSION['email']=$request['email'];
-        // $_SESSION['role']=$request['role'];
-        echo "yes";
-        var_dump($_SESSION);
+      $_SESSION['role']=$user['role'];
+       return $_SESSION;
 
     }
 }

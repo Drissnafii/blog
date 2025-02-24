@@ -1,5 +1,6 @@
 <?php 
 include __DIR__."/../models/UsersModels.php";
+include __DIR__."/../models/ArticleModels.php";
 include __DIR__."/../core/Session.php";
 
 class userControllers
@@ -16,10 +17,31 @@ public function loginForm(){
 }
 
 public function login($request){
+    session_start();
+    $user=$this->model->verification($request);
+    print_r($user);
+    if((!$user))
+    {
+    require_once __DIR__."/../views/popup.php";
+
+    }
     
-    $this->session->donnes($request);
-    // require_once __DIR__."/../views/login.php";
+else {
+    
+    $this->session->donnes($request,$user);
+    if ($user['role']=="user"){
+        $id=$user['id'];
+        
+    require_once __DIR__."/../views/user/articls.php";
+       
+    }
+    else 
+    require_once __DIR__."/../views/admin/articls.php";
+
 }
+   
+}
+
 
 
 public function add($request){

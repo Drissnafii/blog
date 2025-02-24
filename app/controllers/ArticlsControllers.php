@@ -1,7 +1,7 @@
 <?php 
 include __DIR__."/controllers.php";
-include __DIR__."/../models/ArticleModels.php";
-include __DIR__."/../models/categoryModels.php";
+// include_once __DIR__."/../models/ArticleModels.php";
+include_once __DIR__."/../models/categoryModels.php";
 // include __DIR__."/../core/database.php";
 class ArticlsControllers{
     private $model;
