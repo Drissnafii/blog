@@ -1,5 +1,6 @@
 <?php 
-include __DIR__."/../models/UsersModels.php";
+// include __DIR__."/../models/UsersModels.php";
+include_once "../app/models/UsersModels.php";
 include __DIR__."/../models/ArticleModels.php";
 include __DIR__."/../core/Session.php";
 
